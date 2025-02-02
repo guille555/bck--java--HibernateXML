@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC:-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="model">
+  <class name="Menu" table="menu">
+    <meta attribute="class-description">
+      references to menus in a system
+    </meta>
+    <id name="id" type="int" column="menu_id">
+      <generator class="increment"/>
+    </id>
+    <property name="name" type="string" column="name"/>
+    <property name="flagState" type="boolean" column="flag_state"/>
+    <property name="registerDate" type="date" column="register_date"/>
+    <many-to-one name="groupRol" class="GroupRol" column="group_rol_id"/>
+  </class>
+</hibernate-mapping>

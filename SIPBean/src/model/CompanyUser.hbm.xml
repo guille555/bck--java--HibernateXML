@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC:-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="model">
+  <class name="CompanyUser" table="company_user">
+    <meta attribute="class-description">
+      references to users accounts in the system
+    </meta>
+    <id name="id" type="long" column="company_user_id">
+      <generator class="increment"/>
+    </id>
+    <property name="username" type="string" column="username"/>
+    <property name="password" type="string" column="password"/>
+    <property name="flagState" type="boolean" column="flag_state"/>
+    <property name="registerDate" type="date" column="register_date"/>
+    <many-to-one name="systemTag" class="SystemTag" column="system_tag_id"/>
+    <many-to-one name="groupRol" class="GroupRol" column="group_rol_id"/>
+  </class>
+</hibernate-mapping>

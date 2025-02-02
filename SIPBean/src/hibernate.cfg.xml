@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "PUBLIC:-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <!-- DB Connection config props -->
+    <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.EmbeddedDriver</property>
+    <property name="hibernate.connection.url">jdbc:derby:memory:/app/test_db;create=true</property>
+    <property name="hibernate.connection.username">dev</property>
+    <property name="hibernate.connection.password">sprout</property>
+    <property name="hibernate.connection.pool_size">1</property>
+    <property name="hibernate.connection.autocommit">false</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.enable_lazy_load_no_trans">true</property>
+    <!-- classes mapping -->
+    <mapping resource="model/SystemTag.hbm.xml"/>
+    <mapping resource="model/GroupRol.hbm.xml"/>
+    <mapping resource="model/Menu.hbm.xml"/>
+    <mapping resource="model/CompanyUser.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

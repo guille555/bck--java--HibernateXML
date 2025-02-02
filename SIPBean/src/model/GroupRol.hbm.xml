@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "PUBLIC:-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="model">
+  <class name="GroupRol" table="group_rol">
+    <meta attribute="class-description">
+      references to diferents groups (levels of access) in one system
+    </meta>
+    <id name="id" type="int" column="group_rol_id">
+      <generator class="increment"/>
+    </id>
+    <property name="name" type="string" column="name"/>
+    <property name="flagState" type="boolean" column="flag_state"/>
+    <property name="registerDate" type="date" column="register_date"/>
+    <many-to-one name="systemTag" class="SystemTag" column="system_tag_id"/>
+    <bag name="listMenus" table="menu" inverse="true" lazy="true" fetch="select">
+      <key column="group_rol_id"/>
+      <one-to-many class="Menu"/>
+    </bag>
+    <bag name="listCompanyUsers" table="company_user" inverse="true" lazy="true" fetch="select">
+      <key column="group_rol_id"/>
+      <one-to-many class="CompanyUser"/>
+    </bag>
+  </class>
+</hibernate-mapping>
